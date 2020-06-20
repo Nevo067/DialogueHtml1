@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+
+    <title>Title</title>
+    <!--
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+    <link type="text/css" rel="stylesheet" href="./css/application.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-browser/0.1.0/jquery.browser.js"></script>
+
+    <script src="./node_modules/draw2d/dist/draw2d.js"></script>
+    <script src="document.js"></script>
+    <script src="Requette/Application.js"></script>
+    <script src="./Requette/TableShape.js"></script>
+    <script src="Requette/View.js"></script>
+    <script src="Requette/Toolbar.js"></script>
+    <script src="Requette/RequetteDialogue.js"></script>
+
+    <!--<script src="./Requette/RequetteDialogue.js"></script>-->
+    <script type="text/javascript">
+
+        /**
+         * @method
+         * Factory method to provide a default connection for all drag&drop connections. You
+         * can override this method and customize this for your personal purpose.
+         *
+         * @param {draw2d.Port} sourcePort port of the source of the connection
+         * @param {draw2d.Port} targetPort port of the target of the connection
+         * @template
+         * @returns {draw2d.Connection}
+         */
+        /*
+        document.addEventListener("DOMContentLoaded",function () {
+
+            var routerToUse =new draw2d.layout.connection.InteractiveManhattanConnectionRouter();
+            var app  = new example.Application();
+            app.view.installEditPolicy(  new draw2d.policy.connection.DragConnectionCreatePolicy({
+                createConnection: function(){
+                    var connection = new draw2d.Connection({
+                        stroke:3,
+                        outlineStroke:1,
+                        outlineColor:"#303030",
+                        color:"91B93E",
+                        router:routerToUse
+                    });
+                    return connection;
+                }
+            }));
+            app.view.getMessage(96);
+
+            // unmarshal the JSON document into the canvas
+            // (load)
+
+            var reader = new draw2d.io.json.Reader();
+            reader.unmarshal(app.view, jsonDocument);
+
+        });
+
+         */
+
+
+    </script>
+<!--
+    <script>
+        document.addEventListener("DOMContentLoaded",function () {
+
+// create the canvas for the user interaction
+//
+            canvas = new draw2d.Canvas("gfx_holder");
+            canvas.installEditPolicy(new draw2d.policy.canvas.FadeoutDecorationPolicy());
+            canvas.installEditPolicy(new draw2d.policy.canvas.SnapToGridEditPolicy());
+
+
+// create a default JSON reader
+            var reader = new draw2d.io.json.Reader();
+            reader.unmarshal(canvas, lineJson);
+
+
+            var line = new draw2d.shape.basic.PolyLine();
+            line.setVertices([{x:10,y:10},{x:80,y:70},{x:100,y:110}]);
+            canvas.add(line);
+
+// display the SVG into the preview DIV
+//
+            displayJSON(canvas);
+
+
+
+
+            /* just for debug purpose
+            var policy = new draw2d.policy.canvas.SingleSelectionPolicy();
+            policy.onClick= function(figure, position){
+            if(figure!=null)
+            figure.toFront();
+            };
+            canvas.installEditPolicy(policy);
+            */
+
+// add an event listener to the Canvas for change notifications.
+// We just dump the current canvas document into the DIV
+//
+            canvas.getCommandStack().addEventListener(function(e){
+                if(e.isPostChangeEvent()){
+                    displayJSON(canvas);
+                }
+            });
+
+            canvas.on("mousemove",function(emitter, event){
+                var projection =line.pointProjection(event.x,event.y);
+                if (projection !== null) {
+                    var pos = line.lerp(projection.percentage);
+                    label.setPosition(pos);
+                    label.setText(projection.percentage);
+                }
+            })
+        });
+
+        function displayJSON(canvas){
+            var writer = new draw2d.io.json.Writer();
+            writer.marshal(canvas,function(json){
+                $("#json").text(JSON.stringify(json, null, 2));
+            });
+        }
+
+    </script>
+    -->
+
+</head>
+<body>
+<div class="container-fluid">
+
+
+    <div class="row">
+        <div id="col col-6">
+            <select id="selectDialogue" class="form-control form-control-lg">
+
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-lg" id="testAffichage">
+
+        </div>
+    </div>
+    <div class="row">
+           <div class="col col-lg">
+                <button class="btn btn-success btn-block" id ="message">Generer Shema message</button>
+           </div>
+           <div class="col col-lg">
+               <button class="btn btn-success btn-block" id="messageId">Generer message par Id</button>
+           </div>
+    </div>
+    <div class="row">
+        <div class="col col-sm">
+            <div data-shape="TableShape"   class="palette_node_element draw2d_droppable" id="table" title="drag&amp;drop the table into the canvas..">Table</div>
+        </div>
+        <div class="col col-sm">
+            <div data-shape="TableShape"   class="palette_node_element draw2d_droppable" id="tableMessage" title="drag&amp;drop the table into the canvas..">Message</div>
+        </div>
+        <div class="col col-sm">
+            <div data-shape="TableShape"   class="palette_node_element draw2d_droppable" id="tableChoix" title="drag&amp;drop the table into the canvas..">Choix</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-lg">
+                <div id="canvas">
+
+                </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="./Js/DonneeJs.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-browser/0.1.0/jquery.browser.js"></script>
+
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col col-lg">
+                <h1 class="text-lg-center">Assignement des dialogues</h1>
+            </div>
+        </div>
+        <fieldset class="border p-2 bg-light">
+            <legend  class="w-auto">Ajout de dialogue assignable</legend>
+        <form id ="ajoutForm" onsubmit="return false">
+            <div class="row form-group">
+                <div class="col col-lg">
+                    <label for="selectDial">Dialogue</label>
+                    <select id="selectDial" class="form-control"></select>
+                </div>
+                <div class="col col-lg">
+                    <label for="selectCompte">Compte</label>
+                    <select id="selectCompte" class="form-control"></select>
+                </div>
+                <div class="col col-lg">
+                    <label for="ajout">ajout</label>
+                    <button id="ajout" class="btn btn-success form-control">Ajouter</button>
+                </div>
+            </div>
+        </form>
+        </fieldset>
+        <fieldset class="border p-2 bg-light">
+            <legend  class="w-auto">Filtre de dialogue assignable</legend>
+            <form id="filtre">
+                <div class="row form-group">
+                    <div class="col col-md">
+                        <label for="filtreNom">Filtre par nom</label>
+                    </div>
+                    <div class="col col-lg">
+                        <input type="text" id="filtreNom"  class="form-control">
+                    </div>
+
+                </div>
+            </form>
+        </fieldset>
+        <fieldset class="border p-2 bg-light">
+            <legend  class="w-auto">Suppression</legend>
+            <form id="suppresion">
+                <div class="row form-group">
+                    <div class="col col-md">
+                        <label for="selectDialAssign">Compte</label>
+                        <select id="selectDialAssign" class="form-control"></select>
+                    </div>
+                    <div class="col col-md">
+                        <label for="supp">Suppression</label>
+                        <button id="supp" class="btn btn-danger form-control">supprimer</button>
+                    </div>
+
+                </div>
+            </form>
+        </fieldset>
+        <fieldset class="border p-2 bg-light">
+            <legend  class="w-auto">Tableau de données</legend>
+        <form>
+            <div class="row">
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">idDialogue</th>
+                            <th scope="col">idCOmpte</th>
+                            <th scope="col">Supprimer</th>
+                        </tr>
+                    </thead>
+                    <tbody id="remplirTab">
+                    <tr>
+                    <th scope="row">1</th>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        </form>
+        </fieldset>
+    </div>
+</body>
+</html>

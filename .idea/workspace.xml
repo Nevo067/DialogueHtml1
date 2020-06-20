@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d2babb9e-b8b6-4be4-8af4-a7ac7b46309a" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="ProjectId" id="1ZMnIJnrbWvfiQtkrBNPx28ZmJp" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="discord-application" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d2babb9e-b8b6-4be4-8af4-a7ac7b46309a" name="Default Changelist" comment="" />
+      <created>1584657749899</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1584657749899</updated>
+      <workItem from="1584657751129" duration="8839000" />
+      <workItem from="1584700421620" duration="23956000" />
+      <workItem from="1584783706494" duration="17325000" />
+      <workItem from="1585644387317" duration="607000" />
+      <workItem from="1586348639100" duration="1243000" />
+      <workItem from="1586428291764" duration="3012000" />
+      <workItem from="1587116862222" duration="598000" />
+      <workItem from="1587123231534" duration="18000" />
+      <workItem from="1587678321543" duration="844000" />
+      <workItem from="1587808683391" duration="2597000" />
+      <workItem from="1587812273281" duration="23616000" />
+      <workItem from="1587909351101" duration="3483000" />
+      <workItem from="1588091221083" duration="6247000" />
+      <workItem from="1588155559363" duration="7495000" />
+      <workItem from="1588987470433" duration="3529000" />
+      <workItem from="1589036639399" duration="2671000" />
+      <workItem from="1589308736055" duration="1533000" />
+      <workItem from="1589364855565" duration="4012000" />
+      <workItem from="1589467644657" duration="3831000" />
+      <workItem from="1589966682337" duration="136000" />
+      <workItem from="1589968616452" duration="4244000" />
+      <workItem from="1590173382357" duration="15188000" />
+      <workItem from="1590229252301" duration="6582000" />
+      <workItem from="1592508069411" duration="10702000" />
+      <workItem from="1592556465185" duration="13314000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="593" y="148" key="#com.intellij.ide.util.MemberChooser" timestamp="1590175680850">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="593" y="148" key="#com.intellij.ide.util.MemberChooser/62.0.1474.864/1608.-1080.1280.680@62.0.1474.864" timestamp="1584726687645" />
+    <state x="593" y="148" key="#com.intellij.ide.util.MemberChooser/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1590175680850" />
+    <state x="554" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1590175482000">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="554" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1590175482000" />
+    <state x="580" y="187" key="FileChooserDialogImpl" timestamp="1589966814927">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="580" y="187" key="FileChooserDialogImpl/62.0.1474.864/1608.-1080.1280.680@62.0.1474.864" timestamp="1586348682160" />
+    <state x="580" y="187" key="FileChooserDialogImpl/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1589966814927" />
+    <state x="1033" y="322" key="NewPhpClassDialog" timestamp="1590182146925">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="626" y="247" key="NewPhpClassDialog/62.0.1474.864/1608.-1080.1280.680@62.0.1474.864" timestamp="1584704186125" />
+    <state x="1033" y="322" key="NewPhpClassDialog/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1590182146925" />
+    <state x="635" y="356" key="NewPhpFileDialog" timestamp="1587810553389">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="635" y="356" key="NewPhpFileDialog/62.0.1474.864/1608.-1080.1280.680@62.0.1474.864" timestamp="1584710016892" />
+    <state x="635" y="356" key="NewPhpFileDialog/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1587810553389" />
+    <state x="308" y="75" key="SettingsEditor" timestamp="1587812605109">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="308" y="75" key="SettingsEditor/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1587812605109" />
+    <state x="499" y="256" key="com.intellij.ide.util.TipDialog" timestamp="1590229261263">
+      <screen x="66" y="0" width="1470" height="864" />
+    </state>
+    <state x="496" y="256" key="com.intellij.ide.util.TipDialog/62.0.1474.864/1608.-1080.1280.680@62.0.1474.864" timestamp="1586348642940" />
+    <state x="496" y="256" key="com.intellij.ide.util.TipDialog/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1590173774098" />
+    <state x="499" y="256" key="com.intellij.ide.util.TipDialog/66.0.1470.864/1920.-599.1280.680@66.0.1470.864" timestamp="1590229261263" />
+    <state x="440" y="122" width="1108" height="641" key="dock-window-1" timestamp="1589968885252">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="440" y="122" width="1108" height="641" key="dock-window-1/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1589968885252" />
+    <state x="521" y="153" width="1108" height="759" key="dock-window-2" timestamp="1589968885252">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="521" y="153" width="1108" height="759" key="dock-window-2/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1589968885252" />
+    <state x="462" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1587827186366">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="462" y="181" width="672" height="678" key="search.everywhere.popup/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1587827186366" />
+  </component>
+</project>
