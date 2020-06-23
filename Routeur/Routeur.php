@@ -78,6 +78,21 @@ if(isset($_SERVER['REQUEST_URI']))
                 }
 
             }
+            elseif ($_SERVER['REQUEST_METHOD'] =="POST")
+            {
+                if(count($url) ==4)
+                {
+                    if($url[3] =="post")
+                    {
+                        echo $controllerMessage->postMessage();
+                    }
+                    else if($url[3] == "update")
+                    {
+                        echo $controllerMessage->update();
+                    }
+
+                }
+            }
         }
         //dto Choix
         elseif ($url[2] == $classeChoix)

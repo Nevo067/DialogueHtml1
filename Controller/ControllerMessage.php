@@ -55,16 +55,39 @@ class ControllerMessage
         return json_encode($val);
         //return $val;
     }
-    public function postMessage($tab)
+    public function postMessage()
     {
-        $dial = new message();
-        $dao = new ParentDao();
-        $dial->hydrate($tab);
+        $dao= new messageDao();
         $bddClass = new DatabaseClass();
-        $dao->setVariable($dial);
+
         $dao->setBdd($bddClass->getDbbConnection());
-        //$bddClass->DbbConnection($dao->getBdd());
-        $val =$dao->Post($dial);
-        return json_encode($val);
+
+        $id= $_POST["id"];
+        $texte= $_POST["texte"];
+        $iddialogue= $_POST["iddialogue"];
+        $textdialogue= $_POST["textdialogue"];
+        $isachoice= $_POST["isachoice"];
+        $idsuivant= $_POST["idSuivant"];
+
+        return $dao->post($id,$texte,$iddialogue,$textdialogue,$isachoice,$idsuivant);
+    }
+    public function update()
+    {
+        $dao= new messageDao();
+        $bddClass = new DatabaseClass();
+
+        $dao->setBdd($bddClass->getDbbConnection());
+
+        $id= $_POST["id"];
+        $texte= $_POST["texte"];
+        $iddialogue= $_POST["iddialogue"];
+        $textdialogue= $_POST["textdialogue"];
+        $isachoice= $_POST["isachoice"];
+        $idsuivant= $_POST["idSuivant"];
+
+        
+        return $dao->update($id,$texte,$iddialogue,$textdialogue,$isachoice,$idsuivant);
+        
+
     }
 }

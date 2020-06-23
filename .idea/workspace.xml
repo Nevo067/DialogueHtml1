@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2babb9e-b8b6-4be4-8af4-a7ac7b46309a" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,7 +12,11 @@
       <executable />
     </execution>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1ZMnIJnrbWvfiQtkrBNPx28ZmJp" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -24,18 +27,6 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="discord-application" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -72,32 +63,47 @@
       <workItem from="1590229252301" duration="6582000" />
       <workItem from="1592508069411" duration="10702000" />
       <workItem from="1592556465185" duration="13314000" />
+      <workItem from="1592865422269" duration="329000" />
+      <workItem from="1592866103519" duration="5809000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
-    <state x="593" y="148" key="#com.intellij.ide.util.MemberChooser" timestamp="1590175680850">
+    <state x="593" y="148" key="#com.intellij.ide.util.MemberChooser" timestamp="1592870010507">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="593" y="148" key="#com.intellij.ide.util.MemberChooser/62.0.1474.864/1608.-1080.1280.680@62.0.1474.864" timestamp="1584726687645" />
-    <state x="593" y="148" key="#com.intellij.ide.util.MemberChooser/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1590175680850" />
-    <state x="554" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1590175482000">
+    <state x="593" y="148" key="#com.intellij.ide.util.MemberChooser/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1592870010507" />
+    <state x="554" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1592866373357">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state x="554" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1590175482000" />
+    <state x="554" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1592866373357" />
     <state x="580" y="187" key="FileChooserDialogImpl" timestamp="1589966814927">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="580" y="187" key="FileChooserDialogImpl/62.0.1474.864/1608.-1080.1280.680@62.0.1474.864" timestamp="1586348682160" />
     <state x="580" y="187" key="FileChooserDialogImpl/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1589966814927" />
-    <state x="1033" y="322" key="NewPhpClassDialog" timestamp="1590182146925">
+    <state x="1033" y="322" key="NewPhpClassDialog" timestamp="1592866281867">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="626" y="247" key="NewPhpClassDialog/62.0.1474.864/1608.-1080.1280.680@62.0.1474.864" timestamp="1584704186125" />
-    <state x="1033" y="322" key="NewPhpClassDialog/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1590182146925" />
+    <state x="1033" y="322" key="NewPhpClassDialog/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1592866281867" />
     <state x="635" y="356" key="NewPhpFileDialog" timestamp="1587810553389">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
