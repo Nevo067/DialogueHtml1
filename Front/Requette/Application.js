@@ -23,6 +23,7 @@ example.Application = Class.extend(
             this.view    = new example.View("canvas");
             this.toolbar = new example.Toolbar("toolbar",  this.view );
 
+
         }
 
 

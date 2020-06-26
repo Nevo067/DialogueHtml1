@@ -5,11 +5,13 @@
 require "../Dto/Databases.php";
 require "../Dto/DatabaseClass.php";
 require "../Dao/ParentDao.php";
+require "../Dao/DialogueDao.php";
 require "../Controller/ControllerDialogue.php";
 require "../Controller/ControllerMessage.php";
 require "../Controller/ControllerChoix.php";
 require "../Controller/ControllerDialAssign.php";
 require "../Controller/ControllerCompte.php";
+
 
 //Objet
 $controllerDialogue = new ControllerDialogue();
@@ -50,7 +52,25 @@ if(isset($_SERVER['REQUEST_URI']))
             //$controllerDialogue->getDialogue();
             if($_SERVER['REQUEST_METHOD'] =="GET")
             {
-                echo $controllerDialogue->getDialogue();
+
+                if(count($url)>3)
+                {
+
+                    if($url[3] =="text")
+                    {
+
+                        echo json_encode($controllerDialogue->QuerryText($url[4]));
+                    }
+                }
+                else
+                {
+                    echo $controllerDialogue->getDialogue();
+                }
+
+            }
+            elseif ($_SERVER['REQUEST_METHOD'] =="POST")
+            {
+                echo $controllerDialogue->update();
             }
         }
         //Dto message
@@ -140,20 +160,6 @@ if(isset($_SERVER['REQUEST_URI']))
             }
         }
     }
-    /*
-     * A supprimmer
-     */
-
-    /*
-    if($_SERVER['REQUEST_METHOD'] =="GET")
-    {
-        $controllerDialogue->getDialogue();
-    }
-    */
-
-
-    //echo var_dump($url);
-
 }
 
 

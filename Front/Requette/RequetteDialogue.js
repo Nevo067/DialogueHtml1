@@ -5,6 +5,7 @@ Urldialogue ="Dialogue/Routeur/Routeur.php/api/dialogue";
  realUrlMessage = UrlGeneral + UrlMessage;
  realUrlDialogue = UrlGeneral+ Urldialogue;
 var listObject;
+var canvas;
  //draw();
 
 
@@ -34,7 +35,7 @@ var listObject;
         // (load)
 
         var reader = new draw2d.io.json.Reader();
-        setTimeout(function(){reader.unmarshal(app.view, jsonDocument);}, 0 );
+        setTimeout(function(){reader.unmarshal(app.view, jsonDocument);}, 5 );
        // reader.unmarshal(app.view, jsonDocument);
         app.view.getMessage(96);
 
@@ -44,6 +45,7 @@ var listObject;
 
     //console.log(getAllMessage());
     //Click Action
+     /*
     $("#message").click(function() {
             UrlGeneral= UrlGeneral + UrlMessage;
         $.ajax({
@@ -71,11 +73,20 @@ var listObject;
 
         });
     });
+
+      */
     $("#messageId").click(function () {
         nb = $("#selectDialogue").val();
         getMessage(nb);
         app.view.getMessage(nb);
-    })
+    });
+    $("#save").click(function () {
+        postSave();
+    });
+    $("#message").click(function () {
+        loadTab();
+    });
+     
 
 
     //Change Action
@@ -205,7 +216,49 @@ var listObject;
 
      });
  }
+ 
+ function loadTab() {
+     UrlText= UrlGeneral + Urldialogue+"/text/";
+     UrlText =(UrlText+ $("#selectDialogue").val());
+     $.ajax({
+         url:UrlText ,
+         type: 'GET',
+         dataType: 'html',
+         success: function (data) {
+             alert("marche");
+             listObject = JSON.parse(data);
+             app.view.loadTab(listObject[0][0]);
+           //app.view.loadTab(data)
+         },
+         error: function (resultat, statut, erreur) {
+             alert(resultat);
 
+         },
+     });
+
+ }
+
+//Save Tableau
+function saveTab() {
+
+   return app.view.saveTab();
+}
+ function postSave(){
+     console.log(saveTab());
+     $.ajax({
+         type: "POST",
+         url: realUrlDialogue,
+         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+         data: {
+             'id': $("#selectDialogue").val(),
+             'text':(saveTab())
+         },
+         success: function (response) {
+            alert("Le fichier a été sauvegarder");// You will get response from your PHP page (what you echo or print)
+         },
+
+     });
+ }
 
 
  //Draw Methode

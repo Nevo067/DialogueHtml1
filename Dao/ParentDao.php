@@ -173,7 +173,6 @@ class ParentDao
                 array_push($tabToSend, $obj);
             }
         }
-
         return $tabToSend;
     }
     public function QuerryByAttribut($attribut,$id,$NameAtribut)

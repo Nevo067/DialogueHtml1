@@ -25,8 +25,8 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="discord-application" />
+    <property name="last_opened_file_path" value="E:/titlset rpg Maker/Perso/NutsBot" />
+    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -63,8 +63,12 @@
       <workItem from="1590229252301" duration="6582000" />
       <workItem from="1592508069411" duration="10702000" />
       <workItem from="1592556465185" duration="13314000" />
-      <workItem from="1592865422269" duration="329000" />
-      <workItem from="1592866103519" duration="5809000" />
+      <workItem from="1592865422269" duration="600000" />
+      <workItem from="1592959972954" duration="2201000" />
+      <workItem from="1592989026786" duration="21219000" />
+      <workItem from="1593087867457" duration="1149000" />
+      <workItem from="1593089239576" duration="17349000" />
+      <workItem from="1593163880390" duration="4253000" />
     </task>
     <servers />
   </component>
@@ -85,25 +89,25 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="593" y="148" key="#com.intellij.ide.util.MemberChooser" timestamp="1592870010507">
+    <state x="593" y="148" key="#com.intellij.ide.util.MemberChooser" timestamp="1590175680850">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="593" y="148" key="#com.intellij.ide.util.MemberChooser/62.0.1474.864/1608.-1080.1280.680@62.0.1474.864" timestamp="1584726687645" />
-    <state x="593" y="148" key="#com.intellij.ide.util.MemberChooser/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1592870010507" />
-    <state x="554" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1592866373357">
+    <state x="593" y="148" key="#com.intellij.ide.util.MemberChooser/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1590175680850" />
+    <state x="554" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1593009301599">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state x="554" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1592866373357" />
+    <state x="554" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1593009301599" />
     <state x="580" y="187" key="FileChooserDialogImpl" timestamp="1589966814927">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="580" y="187" key="FileChooserDialogImpl/62.0.1474.864/1608.-1080.1280.680@62.0.1474.864" timestamp="1586348682160" />
     <state x="580" y="187" key="FileChooserDialogImpl/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1589966814927" />
-    <state x="1033" y="322" key="NewPhpClassDialog" timestamp="1592866281867">
+    <state x="1033" y="322" key="NewPhpClassDialog" timestamp="1593009228892">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="626" y="247" key="NewPhpClassDialog/62.0.1474.864/1608.-1080.1280.680@62.0.1474.864" timestamp="1584704186125" />
-    <state x="1033" y="322" key="NewPhpClassDialog/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1592866281867" />
+    <state x="1033" y="322" key="NewPhpClassDialog/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1593009228892" />
     <state x="635" y="356" key="NewPhpFileDialog" timestamp="1587810553389">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
@@ -113,11 +117,11 @@
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="308" y="75" key="SettingsEditor/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1587812605109" />
-    <state x="499" y="256" key="com.intellij.ide.util.TipDialog" timestamp="1590229261263">
-      <screen x="66" y="0" width="1470" height="864" />
+    <state x="496" y="256" key="com.intellij.ide.util.TipDialog" timestamp="1593163882565">
+      <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="496" y="256" key="com.intellij.ide.util.TipDialog/62.0.1474.864/1608.-1080.1280.680@62.0.1474.864" timestamp="1586348642940" />
-    <state x="496" y="256" key="com.intellij.ide.util.TipDialog/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1590173774098" />
+    <state x="496" y="256" key="com.intellij.ide.util.TipDialog/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1593163882565" />
     <state x="499" y="256" key="com.intellij.ide.util.TipDialog/66.0.1470.864/1920.-599.1280.680@66.0.1470.864" timestamp="1590229261263" />
     <state x="440" y="122" width="1108" height="641" key="dock-window-1" timestamp="1589968885252">
       <screen x="62" y="0" width="1474" height="864" />
@@ -131,5 +135,16 @@
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="462" y="181" width="672" height="678" key="search.everywhere.popup/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1587827186366" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/Front/Requette/View.js</url>
+          <line>96</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

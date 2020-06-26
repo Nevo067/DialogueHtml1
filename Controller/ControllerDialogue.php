@@ -21,7 +21,7 @@ class ControllerDialogue
         $dao->setVariable($dial);
         $dao->setBdd($bddClass->getDbbConnection());
         //$bddClass->DbbConnection($dao->getBdd());
-        $val =$dao->Querry($dial);
+        $val = $dao->Querry($dial);
 
         return json_encode($val);
 
@@ -36,7 +36,7 @@ class ControllerDialogue
         $dao->setBdd($bddClass->getDbbConnection());
         //$bddClass->DbbConnection($dao->getBdd());
 
-        $val =$dao->QuerryById($dial,$id);
+        $val = $dao->QuerryById($dial, $id);
         //echo $val;
         return json_encode($val);
         //return $val;
@@ -51,8 +51,33 @@ class ControllerDialogue
         $dao->setVariable($dial);
         $dao->setBdd($bddClass->getDbbConnection());
         //$bddClass->DbbConnection($dao->getBdd());
-        $val =$dao->Post($dial);
+        $val = $dao->Post($dial);
         return json_encode($val);
+    }
+
+    public function update()
+    {
+        $id = $_POST['id'];
+        $text = $_POST['text'];
+
+        $dao = new DialogueDao();
+        $bddClass = new DatabaseClass();
+        $dao->setBdd($bddClass->getDbbConnection());
+
+
+
+        return $dao->updateDialogue($text,$id);
+
+
+    }
+    public function QuerryText($id)
+    {
+
+        $dao = new DialogueDao();
+        $bddClass = new DatabaseClass();
+        $dao->setBdd($bddClass->getDbbConnection());
+        return $dao->QuerryText($id);
+
     }
 
 }

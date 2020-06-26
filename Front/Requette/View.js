@@ -3,7 +3,7 @@ example.View = draw2d.Canvas.extend({
 
 
     init: function (id) {
-        this._super(id, 1300, 500);
+        this._super(id, 800, 450);
 
         this.setScrollArea("#" + id);
     },
@@ -198,20 +198,7 @@ example.View = draw2d.Canvas.extend({
                     var command = new draw2d.command.CommandAdd(objet, figure, (25 + (x * i)), 25);
                     objet.getCommandStack().execute(command);
                 }
-
-
-                //alert(listObject+"objet");
-                //console.log(listObject);
-
-
-                //str += listObject;
-                //alert(listObject[0].id);
-                //$(idJquerry).html(str);
-                //$(idQuerry).html(str);
-                //alert($(idJquerry).);
-
             },
-
             error: function (resultat, statut, erreur) {
                 alert(resultat);
                 return null;
@@ -220,8 +207,23 @@ example.View = draw2d.Canvas.extend({
             complete: function (resultat, statut) {
                 return null;
             }
-
         });
+    },
+
+
+    saveTab:function() {
+        let str ="";
+        var writer = new draw2d.io.json.Writer();
+        writer.marshal(this,function(json){
+           str = JSON.stringify(json, null, 2);
+        });
+        return str;
+    },
+    //Load in the canvas the scheme
+    loadTab:function (str) {
+        var reader = new draw2d.io.json.Reader();
+        console.log(str)
+        reader.unmarshal(this, str);
     }
 
 });

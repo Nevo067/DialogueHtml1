@@ -108,6 +108,7 @@ VALUES(:texte, :iddialogue, :textanglais, :isAChoice,:idSuivant);";
      */
     public function setVariable($variable): void
     {
+
         $this->variable = $variable;
     }
 
