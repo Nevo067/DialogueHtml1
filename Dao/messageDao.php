@@ -41,10 +41,9 @@ VALUES(:texte, :iddialogue, :textanglais, :isAChoice,:idSuivant);";
         $requette->bindParam(":texte",$texte,PDO::PARAM_STR);
         $requette->bindParam(":isAChoice",$isAChoice,PDO::PARAM_BOOL);
         $requette->bindParam(":idSuivant",$idSuivant,PDO::PARAM_INT);
-        $requette->execute();
+        return $requette->execute();
 
-        $requette2 = $this->bdd->prepare($this->lastId);
-        return $requette2->execute();
+     
 
     }
     public function post($id,$texte,$iddialogue,$textanglais,$isAChoice,$idSuivant)
@@ -61,6 +60,13 @@ VALUES(:texte, :iddialogue, :textanglais, :isAChoice,:idSuivant);";
         $requette2 = $this->bdd->prepare($this->lastId);
         return $requette2->execute();
 
+    }
+    public function getLastId()
+    {
+     $requette2 = $this->bdd->prepare($this->lastId);
+     $requette2->execute();
+     return $requette2->fetchAll();
+     
     }
 
     /**
