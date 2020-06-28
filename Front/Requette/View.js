@@ -52,6 +52,14 @@ example.View = draw2d.Canvas.extend({
                         connection['connection']['sourcePort']['parent']['parent']['children']['data']['5']['figure'].setText(connection["connection"]["targetPort"]["parent"]['parent']['children']['data']['1']['figure'].getText());
                     }
                 });
+                //TODO:A OPTIMISER FAIRE DES METHODE PAR LIGNE
+                figure.getEntity(Number(j)).getText().on("change",function(){
+                    var donne =[];
+                    for (let index = 0; index < figure.length-1; index++) {
+                         donne.push(figure.getEntity(Number(j)).getText());
+                        
+                    }
+                })
             }
             //figure.setName("NewTable");
             //Create tableChoix
@@ -224,6 +232,19 @@ example.View = draw2d.Canvas.extend({
         var reader = new draw2d.io.json.Reader();
         console.log(str)
         reader.unmarshal(this, str);
-    }
+    },
+
+    //#region Code that send data
+    sendUpdateMessage:function(donnee)
+    {
+        UrlGeneral = "http://localhost/";
+        UrlMessage = "Dialogue/Routeur/Routeur.php/api/message";
+
+        
+
+
+        
+    },
+    //#endregion
 
 });

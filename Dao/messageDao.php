@@ -7,7 +7,8 @@ class messageDao
     private $bdd;
     private $data;
     private $variable;
-
+   
+    //Requette 
     private $update ='UPDATE nevo067_dialogueharmonia.message
 SET texte=:texte, iddialogue=:ididdialogue, textanglais=NULL, isAChoice=:isAChoice, idSuivant=:idSuivant
 WHERE id=:id;
@@ -16,6 +17,7 @@ WHERE id=:id;
 (texte, iddialogue, textanglais, isAChoice,idSuivant)
 VALUES(:texte, :iddialogue, :textanglais, :isAChoice,:idSuivant);";
     private $lastId ='SELECT LAST_INSERT_ID()';
+    private $reqDelete = "delele into message where id =:id";
 
     /**
      * messageDao constructor.
@@ -46,10 +48,9 @@ VALUES(:texte, :iddialogue, :textanglais, :isAChoice,:idSuivant);";
      
 
     }
-    public function post($id,$texte,$iddialogue,$textanglais,$isAChoice,$idSuivant)
+    public function post($texte,$iddialogue,$textanglais,$isAChoice,$idSuivant)
     {
         $requette=$this->bdd->prepare($this->postRequette);
-        $requette->bindParam(":id",$id,PDO::PARAM_INT);
         $requette->bindParam(":iddialogue",$iddialogue,PDO::PARAM_INT);
         $requette->bindParam(":textanglais",$textanglais,PDO::PARAM_STR);
         $requette->bindParam(":texte",$texte,PDO::PARAM_STR);
@@ -57,8 +58,15 @@ VALUES(:texte, :iddialogue, :textanglais, :isAChoice,:idSuivant);";
         $requette->bindParam(":idSuivant",$idSuivant,PDO::PARAM_INT);
         $requette->execute();
 
-        $requette2 = $this->bdd->prepare($this->lastId);
-        return $requette2->execute();
+        
+        return $this->getLastId();
+
+    }
+    public function delete($id)
+    {
+        $requette = $this->bdd->prepare($this->reqDelete);
+        $requette->bindParam(":id",$id,PDO::PARAM_INT);
+        return $requette->execute();
 
     }
     public function getLastId()

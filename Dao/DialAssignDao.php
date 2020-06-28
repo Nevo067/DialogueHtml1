@@ -16,6 +16,7 @@ VALUES(:idDialogue, :idCompte, :isVerif);
 WHERE nom LIKE ";
     private $delete = "DELETE FROM nevo067_dialogueharmonia.dialogueassignable
 WHERE id=:val;";
+    
 
     /**
      * DialAssignDao constructor.
