@@ -1,5 +1,5 @@
 <?php
-require "D:\wamp641\www\Dialogue\Dto\DtoDialogue.php";
+require "../Dto/DtoDialogue.php";
 
 
 class ControllerDialogue

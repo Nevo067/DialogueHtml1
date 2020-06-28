@@ -209,6 +209,7 @@ example.View = draw2d.Canvas.extend({
             },
             error: function (resultat, statut, erreur) {
                 alert(resultat);
+                alert(statut);
                 return null;
             },
 

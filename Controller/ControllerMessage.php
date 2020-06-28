@@ -84,8 +84,6 @@ class ControllerMessage
         $textdialogue= $_POST["textdialogue"];
         $isachoice= $_POST["isachoice"];
         $idsuivant= $_POST["idSuivant"];
-
-        
         return $dao->update($id,$texte,$iddialogue,$textdialogue,$isachoice,$idsuivant);
         
 

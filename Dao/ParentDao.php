@@ -242,7 +242,7 @@ class ParentDao
         }
         $i = strlen($command);
         $i--;
-        $command = substr($command,i);
+        $command = substr($command,$i);
         $command +=');';
 
 
@@ -269,7 +269,7 @@ class ParentDao
         }
         $i = strlen($command);
         $i--;
-        $command = substr($command,i);
+        $command = substr($command,$i);
         $command+= ')';
 
     }
