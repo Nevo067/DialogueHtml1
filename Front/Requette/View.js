@@ -1,3 +1,5 @@
+
+
 //Create different table
 example.View = draw2d.Canvas.extend({
 
@@ -25,8 +27,8 @@ example.View = draw2d.Canvas.extend({
      **/
     //enable to drop table on canvas
     onDrop: function (droppedDomNode, x, y, shiftKey, ctrlKey) {
-        var type = $(droppedDomNode).data("shape");
-        var figure = eval("new " + type + "();");
+        let type = $(droppedDomNode).data("shape");
+        let figure = eval("new " + type + "();");
         //Creer une figure Message
         if ($(droppedDomNode).attr('id') === "tableMessage") {
             figure.addEntity("id");
@@ -36,7 +38,10 @@ example.View = draw2d.Canvas.extend({
             figure.addEntity("idSuivant");
             figure.setName("Message");
             console.log(figure.getLength());
-            for (let j = 0; j < figure.getLength() - 1; j++) {
+            //Pour optimiser
+
+            for (let j = 0; j < figure.getLength() - 1; j++){
+                 let verif = false;
                 console.log(figure);
                 figure.getEntity(Number(j)).getInputPort(0).on("connect", function (emitterPort, connection) {
                     console.log( connection['connection']['sourcePort']['parent']['parent']['children']['data']['0']["figure"].getText() );
@@ -53,14 +58,30 @@ example.View = draw2d.Canvas.extend({
                     }
                 });
                 //TODO:A OPTIMISER FAIRE DES METHODE PAR LIGNE
-                figure.getEntity(Number(j)).getText().on("change",function(){
-                    var donne =[];
-                    for (let index = 0; index < figure.length-1; index++) {
-                         donne.push(figure.getEntity(Number(j)).getText());
-                        
+                console.log( figure.getEntity(Number(j))['text']);
+                
+                /*
+                figure.getEntity(Number(j)).on("change",function(){
+                    donne = [];
+                    if(figure.getEntity(Number(1))['text']!== "id")
+                    {
+
+                        {
+                            for (let index = 0; index < figure.getLength()-1; index++) {
+                                donne.push(figure.getEntity(Number(index)).getText());
+                            }
+                            sendUpdateMessage(donne);
+                            verif = true;
+                        }
+
                     }
-                })
+                });
+
+                 */
+
             }
+            var verif = true;
+
             //figure.setName("NewTable");
             //Create tableChoix
         } else if ($(droppedDomNode).attr('id') === "tableChoix") {
@@ -98,7 +119,22 @@ example.View = draw2d.Canvas.extend({
         }
         // create a command for the undo/redo support
         var command = new draw2d.command.CommandAdd(this, figure, x, y);
+        let t = figure;
         this.getCommandStack().execute(command);
+            figure.eventManager.addEventListener("updateTable",function(){
+            console.log(t);
+            donne = [];
+            if(t.children.get(1).figure['text']!== "id")
+            {
+                for (let index = 0; index < t.getLength()-1; index++) {
+                    console.log(t.children.get(index).figure);
+                    donne.push(t.children.get(index).figure.getText());
+                }
+                console.log("evenement activer");
+                sendUpdateMessage(donne);
+
+            }
+        });
     },
     //TODO:A Changer
     //Function to load message
@@ -146,12 +182,9 @@ example.View = draw2d.Canvas.extend({
                     }
                 });
             }
-
-
             return figure;
             //var command = new draw2d.command.CommandAdd(this, figure, 25, 25);
             //obj.getCommandStack().execute(command);
-
         }
 
         $.ajax({
@@ -218,8 +251,6 @@ example.View = draw2d.Canvas.extend({
             }
         });
     },
-
-
     saveTab:function() {
         let str ="";
         var writer = new draw2d.io.json.Writer();
@@ -231,21 +262,9 @@ example.View = draw2d.Canvas.extend({
     //Load in the canvas the scheme
     loadTab:function (str) {
         var reader = new draw2d.io.json.Reader();
-        console.log(str)
+        console.log(str);
         reader.unmarshal(this, str);
     },
-
     //#region Code that send data
-    sendUpdateMessage:function(donnee)
-    {
-        UrlGeneral = "http://localhost/";
-        UrlMessage = "Dialogue/Routeur/Routeur.php/api/message";
-
-        
-
-
-        
-    },
     //#endregion
-
 });

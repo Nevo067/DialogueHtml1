@@ -6,6 +6,7 @@ require "../Dto/Databases.php";
 require "../Dto/DatabaseClass.php";
 require "../Dao/ParentDao.php";
 require "../Dao/DialogueDao.php";
+require "../Dao/messageDao.php";
 require "../Controller/ControllerDialogue.php";
 require "../Controller/ControllerMessage.php";
 require "../Controller/ControllerChoix.php";
@@ -78,7 +79,11 @@ if(isset($_SERVER['REQUEST_URI']))
         {
             if($_SERVER['REQUEST_METHOD'] =="GET")
             {
-                if(count($url) ==4)
+                if($url[3] == "create")
+                {
+                    echo $controllerMessage->postCreateMessage();
+                }
+                elseif(count($url) ==4)
                 {
                     echo "$url[3]";
                     echo $controllerMessage->getMessageById($url[3]);
@@ -102,14 +107,28 @@ if(isset($_SERVER['REQUEST_URI']))
             {
                 if(count($url) ==4)
                 {
+                    switch($url[3])
+                    {
+                        case "post":
+                            echo $controllerMessage->postMessage();
+                            break;
+
+                        case "update":
+                            echo $controllerMessage->update();
+                            break;
+                        default:
+                            ;
+                    }
+                    /*
                     if($url[3] =="post")
                     {
-                        echo $controllerMessage->postMessage();
+
                     }
                     else if($url[3] == "update")
                     {
                         echo $controllerMessage->update();
                     }
+                    */
 
                 }
             }

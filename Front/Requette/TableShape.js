@@ -17,12 +17,14 @@ TableShape = draw2d.shape.layout.VerticalLayout.extend({
             resizeable:true,
             editor:new draw2d.ui.LabelInplaceEditor()
         });
+        this.eventManager = new eventManager();
 
 
 
 
         this.add(this.classLabel);
     },
+
 
 
     /**
@@ -50,8 +52,16 @@ TableShape = draw2d.shape.layout.VerticalLayout.extend({
         var input = label.createPort("input");
         var output= label.createPort("output");
 
-        console.log(input.text);
 
+
+
+
+
+
+        console.log(input.text);
+        console.log(this);
+        console.log(this.id);
+        console.log(document.getElementById(this.id));
         console.log(label);
         input.setName("input_"+label.id);
         output.setName("output_"+label.id);
@@ -97,6 +107,45 @@ TableShape = draw2d.shape.layout.VerticalLayout.extend({
                     }
             });
         });
+        /*
+        let x = this;
+        const handler ={
+            set(obj, prop, value) {
+                if(prop === "text")
+                {
+                    donne = [];
+                    if(x.children.get(1).figure['text']!== "id")
+                    {
+                        for (let index = 0; index < x.getLength()-1; index++) {
+                            donne.push(x.children.get(1).figure.getText());
+                        }
+                        console.log("evenement activer");
+                        sendUpdateMessage(donne);
+
+                    }
+                    return Reflect.set(...arguments);
+                }
+            }
+
+
+        };
+        const proxy = new Proxy(label,handler)
+         */
+
+        label.on("updateTable",function(){
+            console.log("test");
+            donne = [];
+            if(x.children.get(1).figure['text']!== "id")
+            {
+                for (let index = 0; index < x.getLength()-1; index++) {
+                    donne.push(x.children.get(1).figure.getText());
+                }
+                console.log("evenement activer");
+                sendUpdateMessage(donne);
+
+            }
+        });
+
 
         if($.isNumeric(optionalIndex)){
             this.add(label, null, optionalIndex+1);
@@ -104,6 +153,7 @@ TableShape = draw2d.shape.layout.VerticalLayout.extend({
         else{
             this.add(label);
         }
+
 
         return label;
     },
@@ -203,6 +253,50 @@ TableShape = draw2d.shape.layout.VerticalLayout.extend({
         }
 
         return this;
-    }
+    },
+
 
 });
+function sendUpdateMessage(donnee) {
+    UrlGeneral = "http://localhost/";
+    UrlMessage = "Dialogue/Routeur/Routeur.php/api/message/update";
+    urls = (UrlGeneral+UrlMessage);
+    $.ajax({
+        type: "POST",
+        url: urls,
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        data: {
+            "id":Number(donnee[1]),
+            "text":donnee[2],
+            "isAchoice":Boolean(donnee[3]),
+            "idSuivant":Number(donnee[4]),
+            "iddialogue":Number($("#selectDialogue").val())
+        },
+        success: function (response) {
+            console.log(response);
+        },
+
+    });
+}
+function CreateMesageDb(object)
+{
+    UrlGeneral = "http://localhost/";
+    UrlMessage = "Dialogue/Routeur/Routeur.php/api/message/create";
+
+    urls = (UrlGeneral+UrlMessage);
+    $.ajax({
+        type: "GET",
+        url: urls,
+        //headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        success: function (response) {
+            object.children.get(1).setText(response);
+        },
+
+    });
+}
+class eventManager extends EventTarget{
+
+    constructor() {
+        super();
+    }
+}

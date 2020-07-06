@@ -216,7 +216,6 @@ var canvas;
 
      });
  }
- 
  function loadTab() {
      UrlText= UrlGeneral + Urldialogue+"/text/";
      UrlText =(UrlText+ $("#selectDialogue").val());
@@ -243,7 +242,7 @@ function saveTab() {
 
    return app.view.saveTab();
 }
- function postSave(){
+function postSave(){
      console.log(saveTab());
      $.ajax({
          type: "POST",
@@ -259,8 +258,6 @@ function saveTab() {
 
      });
  }
-
-
  //Draw Methode
  function draw() {
      document.addEventListener("DOMContentLoaded",function () {

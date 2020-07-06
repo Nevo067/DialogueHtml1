@@ -71,6 +71,14 @@ class ControllerMessage
 
         return $dao->post($id,$texte,$iddialogue,$textdialogue,$isachoice,$idsuivant);
     }
+    public function postCreateMessage()
+    {
+        $dao= new messageDao();
+        $bddClass = new DatabaseClass();
+
+        $dao->setBdd($bddClass->getDbbConnection());
+        return $dao->postInit();
+    }
     public function update()
     {
         $dao= new messageDao();
@@ -79,12 +87,11 @@ class ControllerMessage
         $dao->setBdd($bddClass->getDbbConnection());
 
         $id= $_POST["id"];
-        $texte= $_POST["texte"];
+        $texte= $_POST["text"];
         $iddialogue= $_POST["iddialogue"];
-        $textdialogue= $_POST["textdialogue"];
-        $isachoice= $_POST["isachoice"];
+        $isachoice= $_POST["isAchoice"];
         $idsuivant= $_POST["idSuivant"];
-        return $dao->update($id,$texte,$iddialogue,$textdialogue,$isachoice,$idsuivant);
+        return $dao->update($id,$texte,$iddialogue,$isachoice,$idsuivant);
         
 
     }
