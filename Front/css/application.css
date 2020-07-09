@@ -24,9 +24,9 @@ body {
     margin: 0px;
     border: 0px;
     position: absolute;
-    top: 64px;
+    top: 0px;
     right: 0px;
-    left: 160px;
+    left: 128px;
     bottom: 0px;
     overflow: scroll;
     background-color: #FFFFFF;
@@ -69,7 +69,7 @@ body {
 }
 
 #side-nav {
-    border-right: 1px solid #e0e0e0;
+    border-right: 5px solid #e0e0e0;
     bottom: 0;
     background: #fff;
     color: #333;

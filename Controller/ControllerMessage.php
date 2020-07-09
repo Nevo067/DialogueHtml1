@@ -71,13 +71,13 @@ class ControllerMessage
 
         return $dao->post($id,$texte,$iddialogue,$textdialogue,$isachoice,$idsuivant);
     }
-    public function postCreateMessage()
+    public function postCreateMessage($id)
     {
         $dao= new messageDao();
         $bddClass = new DatabaseClass();
 
         $dao->setBdd($bddClass->getDbbConnection());
-        return $dao->postInit();
+        return $dao->postInit($id);
     }
     public function update()
     {

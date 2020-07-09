@@ -31,11 +31,14 @@ var canvas;
         }));
 
 
+
         // unmarshal the JSON document into the canvas
         // (load)
 
         var reader = new draw2d.io.json.Reader();
-        setTimeout(function(){reader.unmarshal(app.view, jsonDocument);}, 5 );
+        reader.unmarshal(app.view, jsonDocument);
+        //setTimeout(function()
+        //{reader.unmarshal(app.view, jsonDocument);}, 5 );
        // reader.unmarshal(app.view, jsonDocument);
         app.view.getMessage(96);
 
@@ -86,6 +89,13 @@ var canvas;
     $("#message").click(function () {
         loadTab();
     });
+    $("#zoomP").click(function () {
+        zoomPlus();
+    });
+    $("#zoomM").click(function () {
+        zoomMoins();
+    })
+
      
 
 
@@ -286,6 +296,13 @@ function postSave(){
          });
          canvas.add(c);
      });
+ }
+ //Enable to zoom
+ function zoomPlus() {
+     app.view.setZoom(app.view.getZoom()*0.5)
+ }
+ function zoomMoins() {
+     app.view.setZoom(app.view.getZoom()*2)
  }
 
  

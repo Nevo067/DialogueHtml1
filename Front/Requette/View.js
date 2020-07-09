@@ -5,10 +5,26 @@ example.View = draw2d.Canvas.extend({
 
 
     init: function (id) {
-        this._super(id, 800, 450);
+        this._super(id,2000,1000);
 
         this.setScrollArea("#" + id);
+
+        this.setZoom(1);
+
+        var canvas = this;
+        canvas.fromDocumentToCanvasCoordinate = $.proxy(function(x, y) {
+            return new draw2d.geo.Point(
+                (x + window.pageXOffset - this.getAbsoluteX() + this.getScrollLeft())*this.zoomFactor,
+                (y + window.pageYOffset - this.getAbsoluteY() + this.getScrollTop())*this.zoomFactor);
+        },canvas);
+
+        canvas.fromCanvasToDocumentCoordinate = $.proxy(function(x,y) {
+            return new draw2d.geo.Point(
+                ((x*(1/this.zoomFactor)) + this.getAbsoluteX() - this.getScrollLeft() - window.pageXOffset),
+                ((y*(1/this.zoomFactor)) + this.getAbsoluteY() - this.getScrollTop() - window.pageYOffset));
+        },canvas);
     },
+
 
 
     /**
@@ -29,6 +45,7 @@ example.View = draw2d.Canvas.extend({
     onDrop: function (droppedDomNode, x, y, shiftKey, ctrlKey) {
         let type = $(droppedDomNode).data("shape");
         let figure = eval("new " + type + "();");
+        let event = new CustomEvent('updateTable',{});
         //Creer une figure Message
         if ($(droppedDomNode).attr('id') === "tableMessage") {
             figure.addEntity("id");
@@ -50,12 +67,14 @@ example.View = draw2d.Canvas.extend({
                     if(connection['connection']['sourcePort']['parent']['parent']['children']['data']['0']["figure"].getText() === "Choix")
                     {
                         connection['connection']['sourcePort']['parent']['parent']['children']['data']['3']['figure'].setText(connection["connection"]["targetPort"]["parent"]['parent']['children']['data']['1']['figure'].getText());
+                        //connection['connection']['sourcePort']['parent']['parent']['children']['data']['4']['figure'].setText(connection["connection"]["targetPort"]["parent"]['parent']['children']['data']['1']['figure'].getText());
                         figure.getEntity(j).getInputPort(0);
                     }
                     else
                     {
                         connection['connection']['sourcePort']['parent']['parent']['children']['data']['5']['figure'].setText(connection["connection"]["targetPort"]["parent"]['parent']['children']['data']['1']['figure'].getText());
                     }
+                    figure.eventManager.dispatchEvent(event);
                 });
                 //TODO:A OPTIMISER FAIRE DES METHODE PAR LIGNE
                 console.log( figure.getEntity(Number(j))['text']);
@@ -88,6 +107,7 @@ example.View = draw2d.Canvas.extend({
             figure.addEntity("id");
             figure.addEntity("text");
             figure.addEntity("idSuivant");
+            figure.addEntity("idMessage");
             figure.setName("Choix");
 
             figure.setName("Choix");
@@ -98,7 +118,12 @@ example.View = draw2d.Canvas.extend({
                 figure.getEntity(Number(j)).getInputPort(0).on("connect", function (emitterPort, connection) {
                     if(connection['connection']['targetPort']['parent']['parent']['children']['data']['0']["figure"].getText() === "Choix")
                     {
+                        console.log(connection['connection']['targetPort']["parent"]['parent']['children']['data']['3']['figure'].getText());
                         connection['connection']['sourcePort']['parent']['parent']['children']['data']['5']['figure'].setText(connection['connection']['targetPort']["parent"]['parent']['children']['data']['3']['figure'].getText());
+                        connection['connection']['targetPort']["parent"]['parent']['children']['data']['4']['figure'].setText(connection['connection']['sourcePort']['parent']['parent']['children']['data']['1']['figure'].getText());
+                        connection['connection']['sourcePort']['parent']['parent']['children']['data']['4']['figure'].setText("1");
+                        //Event enable to send request about the tableshap
+                        figure.eventManager.dispatchEvent(event);
                     }
                     /*
                     connection['connection']['sourcePort']['parent']['parent']['children']['data']['5']['figure'].setText(connection['connection']['targetPort']["parent"]['parent']['children']['data']['3']['figure'].getText());
@@ -130,11 +155,18 @@ example.View = draw2d.Canvas.extend({
                     console.log(t.children.get(index).figure);
                     donne.push(t.children.get(index).figure.getText());
                 }
-                console.log("evenement activer");
-                sendUpdateMessage(donne);
-
+                console.log(t.children.get(0).figure['text']);
+                if(t.children.get(0).figure['text'] === "Message")
+                {
+                    sendUpdateMessage(donne);
+                }
+                else
+                {
+                    sendUpdateChoix(donne);
+                }
             }
         });
+        figure.createMessageDb(figure.getEntity(0));
     },
     //TODO:A Changer
     //Function to load message
@@ -267,4 +299,7 @@ example.View = draw2d.Canvas.extend({
     },
     //#region Code that send data
     //#endregion
+
+
+
 });

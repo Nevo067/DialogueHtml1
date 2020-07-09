@@ -16,11 +16,12 @@ WHERE id=:id;
     private $post ="INSERT INTO nevo067_dialogueharmonia.message
 (texte, iddialogue, textanglais, isAChoice,idSuivant)
 VALUES(:texte, :iddialogue, :textanglais, :isAChoice,:idSuivant);";
-    private $lastId ='SELECT LAST_INSERT_ID()';
+
+    private $lastId ='SELECT max(id) from dialogueharmania.message ';
     private $reqDelete = "delele into message where id =:id";
     private $requetteCreate ="INSERT INTO nevo067_dialogueharmonia.message 
 (texte, iddialogue, textanglais, isAChoice, idPersonnage, idSuivant)
-VALUES(NULL, 0, NULL, 0, NULL, 0);";
+VALUES(NULL, :idDialogue, NULL, 0, NULL, 0);";
 
 
     /**
@@ -69,14 +70,12 @@ VALUES(NULL, 0, NULL, 0, NULL, 0);";
     }
     public function getLastId()
     {
-     $requette2 = $this->bdd->prepare($this->lastId);
-     $requette2->execute();
-     return $requette2->fetchAll();
-     
+     return $this->bdd->lastInsertId();
     }
-    public function postInit()
+    public function postInit($id)
     {
         $requette=$this->bdd->prepare($this->requetteCreate);
+        $requette->bindParam(":idDialogue",$id,PDO::PARAM_INT);
         $requette->execute();
         return $this->getLastId();
 

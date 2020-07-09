@@ -21,7 +21,7 @@ example.Application = Class.extend(
         init : function()
         {
             this.view    = new example.View("canvas");
-            this.toolbar = new example.Toolbar("toolbar",  this.view );
+            this.toolbar = new example.Toolbar("toolbar", this.view );
 
 
         }

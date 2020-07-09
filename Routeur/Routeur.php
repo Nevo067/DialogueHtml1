@@ -81,7 +81,7 @@ if(isset($_SERVER['REQUEST_URI']))
             {
                 if($url[3] == "create")
                 {
-                    echo $controllerMessage->postCreateMessage();
+                    echo json_encode($controllerMessage->postCreateMessage($url[4]));
                 }
                 elseif(count($url) ==4)
                 {
@@ -138,7 +138,23 @@ if(isset($_SERVER['REQUEST_URI']))
         {
             if($_SERVER['REQUEST_METHOD'] =="GET")
             {
-                $controllerChoix->getChoix();
+                if(count($url)>3)
+                {
+                    if($url[3] == "create")
+                    {
+                        $controllerChoix->postInit($url[4]);
+                    }
+                    elseif ($url[3]=="update")
+                    {
+                        $controllerChoix->update($url[4]);
+                    }
+                }
+                else
+                {
+                    $controllerChoix->getChoix();
+                }
+
+
             }
         }
         //dto dialAsign

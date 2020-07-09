@@ -191,6 +191,7 @@ TableShape = draw2d.shape.layout.VerticalLayout.extend({
     },
 
 
+
     /**
      * @method
      * Set the name of the DB table. Visually it is the header of the shape
@@ -202,6 +203,42 @@ TableShape = draw2d.shape.layout.VerticalLayout.extend({
         this.classLabel.setText(name);
 
         return this;
+    },
+    createMessageDb:function(object)
+    {
+        UrlGeneral = "http://localhost/";
+        UrlMessage = "Dialogue/Routeur/Routeur.php/api/message/create/";
+        nbDialogue = $("#selectDialogue").val();
+
+        urls = (UrlGeneral+UrlMessage+nbDialogue);
+        $.ajax({
+            type: "GET",
+            url: urls,
+            //headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            success: function (response) {
+                console.log(response);
+                object.setText(JSON.parse(response));
+            },
+
+        });
+    },
+    createChoixDb:function(object)
+    {
+        UrlGeneral = "http://localhost/";
+        UrlMessage = "Dialogue/Routeur/Routeur.php/api/choix/create/";
+        nbDialogue = $("#selectDialogue").val();
+
+        urls = (UrlGeneral+UrlMessage+nbDialogue);
+        $.ajax({
+            type: "GET",
+            url: urls,
+            //headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            success: function (response) {
+                console.log(response);
+                object.setText(JSON.parse(response));
+            },
+
+        });
     },
 
 
@@ -257,6 +294,7 @@ TableShape = draw2d.shape.layout.VerticalLayout.extend({
 
 
 });
+//Requette Update message and choice
 function sendUpdateMessage(donnee) {
     UrlGeneral = "http://localhost/";
     UrlMessage = "Dialogue/Routeur/Routeur.php/api/message/update";
@@ -278,18 +316,41 @@ function sendUpdateMessage(donnee) {
 
     });
 }
+function sendUpdateChoix(donnee) {
+    UrlGeneral = "http://localhost/";
+    UrlMessage = "Dialogue/Routeur/Routeur.php/api/choix/update";
+    urls = (UrlGeneral+UrlMessage);
+    $.ajax({
+        type: "POST",
+        url: urls,
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        data: {
+            "id":Number(donnee[1]),
+            "text":donnee[2],
+            "idSuivant":Number(donnee[3]),
+            "iddialogue":Number($("#selectDialogue").val())
+        },
+        success: function (response) {
+            console.log(response);
+        },
+
+    });
+}
+
 function CreateMesageDb(object)
 {
     UrlGeneral = "http://localhost/";
-    UrlMessage = "Dialogue/Routeur/Routeur.php/api/message/create";
+    UrlMessage = "Dialogue/Routeur/Routeur.php/api/message/create/";
+    nbDialogue = $("#selectDialogue").val();
 
-    urls = (UrlGeneral+UrlMessage);
+    urls = (UrlGeneral+UrlMessage+nbDialogue);
     $.ajax({
         type: "GET",
         url: urls,
         //headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         success: function (response) {
-            object.children.get(1).setText(response);
+            alert(response);
+            object.children.get(1).setText(JSON.parse(response));
         },
 
     });

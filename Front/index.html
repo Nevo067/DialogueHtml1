@@ -17,13 +17,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-browser/0.1.0/jquery.browser.js"></script>
+    <script src="https://cdn.tutorialjinni.com/jquery-layout/1.4.3/jquery.layout.min.js"></script>
 
     <script src="./node_modules/draw2d/dist/draw2d.js"></script>
     <script src="document.js"></script>
     <script src="Requette/Application.js"></script>
-    <script src="./Requette/TableShape.js"></script>
     <script src="Requette/View.js"></script>
     <script src="Requette/Toolbar.js"></script>
+    <script src="./Requette/TableShape.js"></script>
+
     <script src="Requette/RequetteDialogue.js"></script>
 
     <!--<script src="./Requette/RequetteDialogue.js"></script>-->
@@ -175,15 +177,21 @@
         </div>
     </div>
     <div class="row">
-        <div class="col col-10">
+        <div class="col col-6">
+            <button class="btn btn-block btn-success" id="zoomP">ZOOM +</button>
+        </div>
+        <div class="col col-6">
+            <button class="btn btn-block btn-success" id="zoomM">ZOOM -</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-lg">
             <div id="canvas">
 
             </div>
         </div>
-        <div class="col col-2">
-
-        </div>
     </div>
 </div>
+
 </body>
 </html>
