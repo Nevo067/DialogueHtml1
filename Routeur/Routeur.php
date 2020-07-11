@@ -7,6 +7,7 @@ require "../Dto/DatabaseClass.php";
 require "../Dao/ParentDao.php";
 require "../Dao/DialogueDao.php";
 require "../Dao/messageDao.php";
+require "../Dao/ChoixDao.php";
 require "../Controller/ControllerDialogue.php";
 require "../Controller/ControllerMessage.php";
 require "../Controller/ControllerChoix.php";
@@ -142,7 +143,7 @@ if(isset($_SERVER['REQUEST_URI']))
                 {
                     if($url[3] == "create")
                     {
-                        $controllerChoix->postInit($url[4]);
+                       echo json_encode($controllerChoix->postInit($url[4]));
                     }
                     elseif ($url[3]=="update")
                     {
@@ -153,8 +154,13 @@ if(isset($_SERVER['REQUEST_URI']))
                 {
                     $controllerChoix->getChoix();
                 }
-
-
+            }
+            elseif($_SERVER['REQUEST_METHOD'] =="POST")
+            {
+                if($url[3]=="update")
+                {
+                    $controllerChoix->update();
+                }
             }
         }
         //dto dialAsign

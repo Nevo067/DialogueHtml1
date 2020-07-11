@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2babb9e-b8b6-4be4-8af4-a7ac7b46309a" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,18 +27,6 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="E:/titlset rpg Maker/Perso/NutsBot" />
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -93,6 +80,10 @@
       <workItem from="1594034376233" duration="18171000" />
       <workItem from="1594248290567" duration="9315000" />
       <workItem from="1594305664385" duration="10769000" />
+      <workItem from="1594338643228" duration="3319000" />
+      <workItem from="1594420348558" duration="2859000" />
+      <workItem from="1594425984684" duration="417000" />
+      <workItem from="1594497365461" duration="2797000" />
     </task>
     <servers />
   </component>
@@ -113,10 +104,10 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="593" y="148" key="#com.intellij.ide.util.MemberChooser" timestamp="1590175680850">
+    <state x="593" y="148" key="#com.intellij.ide.util.MemberChooser" timestamp="1594340260397">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state x="593" y="148" key="#com.intellij.ide.util.MemberChooser/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1590175680850" />
+    <state x="593" y="148" key="#com.intellij.ide.util.MemberChooser/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1594340260397" />
     <state x="554" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1593009301599">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
@@ -138,11 +129,12 @@
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="308" y="75" key="SettingsEditor/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1587812605109" />
-    <state x="496" y="256" key="com.intellij.ide.util.TipDialog" timestamp="1594034405056">
-      <screen x="62" y="0" width="1474" height="864" />
+    <state x="2297" y="-398" key="com.intellij.ide.util.TipDialog" timestamp="1594497365264">
+      <screen x="1920" y="-599" width="1280" height="680" />
     </state>
     <state x="496" y="256" key="com.intellij.ide.util.TipDialog/62.0.1474.864/1608.-1080.1280.680@62.0.1474.864" timestamp="1586348642940" />
-    <state x="496" y="256" key="com.intellij.ide.util.TipDialog/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1594034405056" />
+    <state x="2297" y="-398" key="com.intellij.ide.util.TipDialog/62.0.1474.864/1920.-599.1280.680@1920.-599.1280.680" timestamp="1594497365264" />
+    <state x="496" y="256" key="com.intellij.ide.util.TipDialog/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1594339179644" />
     <state x="499" y="256" key="com.intellij.ide.util.TipDialog/66.0.1470.864/1920.-599.1280.680@66.0.1470.864" timestamp="1590229261263" />
     <state x="440" y="122" width="1108" height="641" key="dock-window-1" timestamp="1589968885252">
       <screen x="62" y="0" width="1474" height="864" />
@@ -164,6 +156,11 @@
           <url>file://$PROJECT_DIR$/Front/Requette/RequetteDialogue.js</url>
           <line>155</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/Front/Requette/View.js</url>
+          <line>115</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

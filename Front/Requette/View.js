@@ -100,6 +100,7 @@ example.View = draw2d.Canvas.extend({
 
             }
             var verif = true;
+            figure.createMessageDb(figure.getEntity(0));
 
             //figure.setName("NewTable");
             //Create tableChoix
@@ -141,6 +142,7 @@ example.View = draw2d.Canvas.extend({
 
                  */
             }
+            figure.createChoixDb(figure.getEntity(0));
         }
         // create a command for the undo/redo support
         var command = new draw2d.command.CommandAdd(this, figure, x, y);
@@ -166,7 +168,7 @@ example.View = draw2d.Canvas.extend({
                 }
             }
         });
-        figure.createMessageDb(figure.getEntity(0));
+
     },
     //TODO:A Changer
     //Function to load message

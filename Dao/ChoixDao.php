@@ -11,11 +11,11 @@ class ChoixDao
 (idMessage, idMessageQuestion, isGoodChoice, text, nbEffect, IdSuivant, idDialogue, effect, textAnglais)
 VALUES(217, NULL, NULL, NULL, NULL, NULL, :idDialogue, NULL, NULL);";
 
-    private $update = "UPDATE nevo067_dialogueharmonia.choix
+    private $update = "Update nevo067_dialogueharmonia.choix
 SET idMessage=:idMessage, idMessageQuestion=NULL, isGoodChoice=NULL, text=:text, nbEffect=NULL, IdSuivant=:idSuivant, idDialogue=:idDialogue, effect=NULL, textAnglais=NULL
 WHERE Id=:id;";
 
-    private $lastId ='SELECT max(id) from dialogueharmania.choix ';
+    private $lastId ='SELECT max(id) from nevo067_dialogueharmonia.choix';
 
 
 
@@ -30,16 +30,42 @@ WHERE Id=:id;";
     }
     public function postCreate($id)
     {
-        $requette=$this->bdd->prepare($this->bdd->post);
+        $requette=$this->bdd->prepare($this->post);
         $requette->bindParam(":idDialogue",$id,PDO::PARAM_INT);
         $requette->execute();
-        $requette2=$this->bdd->prepare($this->bdd->lastId);
-        echo $requette2->execute();
+        $requette2=$this->bdd->prepare($this->lastId);
+        $requette2->execute();
+        return $requette2->fetchall();
 
     }
     public function update($idMessage,$idSuivant,$idDialogue,$id,$text)
     {
-        $requette = $this->bdd->prepare($this->bdd->post);
+
+        echo $idMessage;
+        echo "</Br>";
+        echo $idSuivant;
+        echo "</Br>";
+        echo $idDialogue;
+        echo "</Br>";
+        echo $id;
+        echo "</Br>";
+        echo $text;
+        echo "</Br>";
+
+        if($idMessage == "NaN")
+        {
+           echo "idMessage";
+           $idMessage = 217;
+           echo $idMessage;
+        }
+        if($idSuivant == "NaN")
+        {
+            echo "idDialogue";
+            $idSuivant = 217;
+            echo $idSuivant;
+        }
+
+        $requette = $this->bdd->prepare($this->update);
         $requette->bindParam(":id",$id,PDO::PARAM_INT);
         $requette->bindParam(":idSuivant",$idSuivant,PDO::PARAM_INT);
         $requette->bindParam(":idDialogue",$idDialogue,PDO::PARAM_INT);
@@ -47,6 +73,22 @@ WHERE Id=:id;";
         $requette->bindParam(":text",$text,PDO::PARAM_STR);
         echo $requette->execute();
 
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBdd()
+    {
+        return $this->bdd;
+    }
+
+    /**
+     * @param mixed $bdd
+     */
+    public function setBdd($bdd): void
+    {
+        $this->bdd = $bdd;
     }
 
 }

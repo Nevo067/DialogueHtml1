@@ -234,8 +234,8 @@ TableShape = draw2d.shape.layout.VerticalLayout.extend({
             url: urls,
             //headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             success: function (response) {
-                console.log(response);
-                object.setText(JSON.parse(response));
+                console.log();
+                object.setText(JSON.parse(response)[0][0]);
             },
 
         });
@@ -328,10 +328,15 @@ function sendUpdateChoix(donnee) {
             "id":Number(donnee[1]),
             "text":donnee[2],
             "idSuivant":Number(donnee[3]),
-            "iddialogue":Number($("#selectDialogue").val())
+            "idMessage":Number(donnee[4]),
+            "iddialogue":Number($("#selectDialogue").val()),
         },
         success: function (response) {
             console.log(response);
+        },
+        error: function (resultat, statut, erreur) {
+            console.log(resultat);
+
         },
 
     });

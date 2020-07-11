@@ -44,7 +44,7 @@ class ControllerChoix
         $dao->setBdd($bddClass->getDbbConnection());
         return $dao->postCreate($id);
     }
-    public function update($id)
+    public function update()
     {
         $dial = new DtoDialogue();
         $dao = new ChoixDao();
@@ -58,6 +58,6 @@ class ControllerChoix
         $idsuivant= $_POST["idSuivant"];
         $idMessage = $_POST["idMessage"];
 
-        return $dao->update($idMessage,$idsuivant,$iddialogue,$id);
+        return $dao->update($idMessage,$idsuivant,$iddialogue,$id,$texte);
     }
 }
