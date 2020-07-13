@@ -46,6 +46,33 @@ example.View = draw2d.Canvas.extend({
         let type = $(droppedDomNode).data("shape");
         let figure = eval("new " + type + "();");
         let event = new CustomEvent('updateTable',{});
+
+        let t = figure;
+
+        figure.eventManager.addEventListener("updateTable",function(e){
+            console.log(t);
+            donne = [];
+            if(t.children.get(1).figure['text']!== "id")
+            {
+                for (let index = 0; index < t.getLength(); index++) {
+                    console.log(t.children.get(index).figure);
+                    donne.push(t.children.get(index).figure.getText());
+                }
+                console.log(t.children.get(0).figure['text']);
+                if(t.children.get(0).figure['text'] === "Message")
+                {
+                    sendUpdateMessage(donne);
+                }
+                else
+                {
+                    sendUpdateChoix(donne);
+                }
+            }
+        });
+
+
+
+
         //Creer une figure Message
         if ($(droppedDomNode).attr('id') === "tableMessage") {
             figure.addEntity("id");
@@ -69,12 +96,16 @@ example.View = draw2d.Canvas.extend({
                         connection['connection']['sourcePort']['parent']['parent']['children']['data']['3']['figure'].setText(connection["connection"]["targetPort"]["parent"]['parent']['children']['data']['1']['figure'].getText());
                         //connection['connection']['sourcePort']['parent']['parent']['children']['data']['4']['figure'].setText(connection["connection"]["targetPort"]["parent"]['parent']['children']['data']['1']['figure'].getText());
                         figure.getEntity(j).getInputPort(0);
+                        console.log( connection['connection']['sourcePort']['parent']['parent']);
+                        t = figure;
+                        connection['connection']['sourcePort']['parent']['parent'].eventManager.dispatchEvent(event);
                     }
                     else
                     {
                         connection['connection']['sourcePort']['parent']['parent']['children']['data']['5']['figure'].setText(connection["connection"]["targetPort"]["parent"]['parent']['children']['data']['1']['figure'].getText());
+                        t =connection['connection']['sourcePort']['parent']['parent'];
                     }
-                    figure.eventManager.dispatchEvent(event);
+                    //Target Port
                 });
                 //TODO:A OPTIMISER FAIRE DES METHODE PAR LIGNE
                 console.log( figure.getEntity(Number(j))['text']);
@@ -121,11 +152,20 @@ example.View = draw2d.Canvas.extend({
                     {
                         console.log(connection['connection']['targetPort']["parent"]['parent']['children']['data']['3']['figure'].getText());
                         connection['connection']['sourcePort']['parent']['parent']['children']['data']['5']['figure'].setText(connection['connection']['targetPort']["parent"]['parent']['children']['data']['3']['figure'].getText());
-                        connection['connection']['targetPort']["parent"]['parent']['children']['data']['4']['figure'].setText(connection['connection']['sourcePort']['parent']['parent']['children']['data']['1']['figure'].getText());
                         connection['connection']['sourcePort']['parent']['parent']['children']['data']['4']['figure'].setText("1");
-                        //Event enable to send request about the tableshap
+                        t = connection['connection']['sourcePort']['parent']['parent'];
                         figure.eventManager.dispatchEvent(event);
+
+                        connection['connection']['targetPort']["parent"]['parent']['children']['data']['4']['figure'].setText(connection['connection']['sourcePort']['parent']['parent']['children']['data']['1']['figure'].getText());
+                        //Event enable to send request about the tableshap
+                        t = connection['connection']['targetPort']['parent']['parent'];
+
+                        //connection['connection']['sourcePort']['parent']['parent'].eventManager.dispatchEvent(event);
+
+
+
                     }
+                    figure.eventManager.dispatchEvent(event);
                     /*
                     connection['connection']['sourcePort']['parent']['parent']['children']['data']['5']['figure'].setText(connection['connection']['targetPort']["parent"]['parent']['children']['data']['3']['figure'].getText());
                     connection["connection"]["targetPort"]["parent"]['parent']['children']['data']['3']['figure'].setText(connection['connection']['sourcePort']['parent']['parent']['children']['data']['1']['figure'].getText());
@@ -146,28 +186,9 @@ example.View = draw2d.Canvas.extend({
         }
         // create a command for the undo/redo support
         var command = new draw2d.command.CommandAdd(this, figure, x, y);
-        let t = figure;
+
         this.getCommandStack().execute(command);
-            figure.eventManager.addEventListener("updateTable",function(){
-            console.log(t);
-            donne = [];
-            if(t.children.get(1).figure['text']!== "id")
-            {
-                for (let index = 0; index < t.getLength()-1; index++) {
-                    console.log(t.children.get(index).figure);
-                    donne.push(t.children.get(index).figure.getText());
-                }
-                console.log(t.children.get(0).figure['text']);
-                if(t.children.get(0).figure['text'] === "Message")
-                {
-                    sendUpdateMessage(donne);
-                }
-                else
-                {
-                    sendUpdateChoix(donne);
-                }
-            }
-        });
+
 
     },
     //TODO:A Changer

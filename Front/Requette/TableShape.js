@@ -18,6 +18,8 @@ TableShape = draw2d.shape.layout.VerticalLayout.extend({
             editor:new draw2d.ui.LabelInplaceEditor()
         });
         this.eventManager = new eventManager();
+        this.eventManager.setParent(this);
+        this.eventManager.setParent(this.eventManager);
 
 
 
@@ -319,6 +321,7 @@ function sendUpdateMessage(donnee) {
 function sendUpdateChoix(donnee) {
     UrlGeneral = "http://localhost/";
     UrlMessage = "Dialogue/Routeur/Routeur.php/api/choix/update";
+    console.log(donnee);
     urls = (UrlGeneral+UrlMessage);
     $.ajax({
         type: "POST",
@@ -364,5 +367,14 @@ class eventManager extends EventTarget{
 
     constructor() {
         super();
+
+    }
+    setParent = function(o) {
+        if (o.nodes != undefined) {
+            for (n in o.nodes) {
+                o.nodes[n].parent = o;
+                setParent(o.nodes[n]);
+            }
+        }
     }
 }

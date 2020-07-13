@@ -28,6 +28,18 @@
     <property name="last_opened_file_path" value="E:/titlset rpg Maker/Perso/NutsBot" />
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -84,6 +96,8 @@
       <workItem from="1594420348558" duration="2859000" />
       <workItem from="1594425984684" duration="417000" />
       <workItem from="1594497365461" duration="2797000" />
+      <workItem from="1594642684832" duration="448000" />
+      <workItem from="1594643378455" duration="9975000" />
     </task>
     <servers />
   </component>
@@ -158,9 +172,9 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Front/Requette/View.js</url>
-          <line>115</line>
-          <option name="timeStamp" value="2" />
+          <url>file://$PROJECT_DIR$/Front/Requette/TableShape.js</url>
+          <line>5</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
