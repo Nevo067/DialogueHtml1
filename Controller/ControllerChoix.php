@@ -60,4 +60,14 @@ class ControllerChoix
 
         return $dao->update($idMessage,$idsuivant,$iddialogue,$id,$texte);
     }
+    public function delete()
+    {
+        $dao= new ChoixDao();
+        $bddClass = new DatabaseClass();
+
+        $dao->setBdd($bddClass->getDbbConnection());
+        $id = $_POST['id'];
+
+        return $dao->delete($id);
+    }
 }

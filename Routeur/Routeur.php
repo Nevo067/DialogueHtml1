@@ -117,7 +117,10 @@ if(isset($_SERVER['REQUEST_URI']))
                         case "update":
                             echo $controllerMessage->update();
                             break;
-                        default:
+                        case "delete":
+                            echo $controllerMessage->delete();
+                            break;
+                            default:
                             ;
                     }
                     /*
@@ -157,10 +160,18 @@ if(isset($_SERVER['REQUEST_URI']))
             }
             elseif($_SERVER['REQUEST_METHOD'] =="POST")
             {
-                if($url[3]=="update")
+                switch ($url[3])
                 {
-                    $controllerChoix->update();
+                    case "update":
+                        echo $controllerChoix->update();
+                        break;
+                    case "delete":
+                        echo $controllerChoix->delete();
+                        break;
+                        default:
+                        ;
                 }
+
             }
         }
         //dto dialAsign

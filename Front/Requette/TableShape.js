@@ -1,6 +1,7 @@
 TableShape = draw2d.shape.layout.VerticalLayout.extend({
 
     NAME: "TableShape",
+    T:"",
 
     init : function(attr)
     {
@@ -22,9 +23,30 @@ TableShape = draw2d.shape.layout.VerticalLayout.extend({
         this.eventManager.setParent(this.eventManager);
 
 
-
+        T = this;
 
         this.add(this.classLabel);
+        let t = this;
+        this.eventManager.addEventListener("updateTable",function(e){
+            console.log(t);
+            donne = [];
+            if(t.children.get(1).figure['text']!== "id")
+            {
+                for (let index = 0; index < t.getLength(); index++) {
+                    console.log(t.children.get(index).figure);
+                    donne.push(t.children.get(index).figure.getText());
+                }
+                console.log(t.children.get(0).figure['text']);
+                if(t.children.get(0).figure['text'] === "Message")
+                {
+                    t.sendUpdateMessage(donne);
+                }
+                else
+                {
+                    t.sendUpdateChoix(donne);
+                }
+            }
+        });
     },
 
 
@@ -60,7 +82,8 @@ TableShape = draw2d.shape.layout.VerticalLayout.extend({
 
 
 
-        console.log(input.text);
+
+
         console.log(this);
         console.log(this.id);
         console.log(document.getElementById(this.id));
@@ -143,7 +166,7 @@ TableShape = draw2d.shape.layout.VerticalLayout.extend({
                     donne.push(x.children.get(1).figure.getText());
                 }
                 console.log("evenement activer");
-                sendUpdateMessage(donne);
+                this.sendUpdateMessage(donne);
 
             }
         });
@@ -151,12 +174,55 @@ TableShape = draw2d.shape.layout.VerticalLayout.extend({
 
         if($.isNumeric(optionalIndex)){
             this.add(label, null, optionalIndex+1);
+            this.T = this;
         }
         else{
             this.add(label);
+            this.T = this;
         }
+        let event = new CustomEvent('updateTable',{});
+        console.log(this["classLabel"]);
+        console.log(T["children"]);
+        console.log(T["children"]["data"].length);
+        console.log(this["children"]["data"]["1"]["figure"]["text"]);
+        console.log(T["children"]["data"]["0"]["figure"]["text"]);
+        console.log(label);
 
+        label.getInputPort(0).on("connect", function (emitterPort, connection) {
+                if(T["children"]["data"]["0"]["figure"]["text"] === "Message") {
+                    console.log(connection['connection']['sourcePort']['parent']['parent']['children']['data']['0']["figure"].getText());
+                    console.log(connection['connection']['targetPort']['parent']['parent']['children']['data']['0']["figure"].getText());
 
+                    if (connection['connection']['sourcePort']['parent']['parent']['children']['data']['0']["figure"].getText() === "Choix") {
+                        connection['connection']['sourcePort']['parent']['parent']['children']['data']['3']['figure'].setText(connection["connection"]["targetPort"]["parent"]['parent']['children']['data']['1']['figure'].getText());
+                        //connection['connection']['sourcePort']['parent']['parent']['children']['data']['4']['figure'].setText(connection["connection"]["targetPort"]["parent"]['parent']['children']['data']['1']['figure'].getText());
+                        figure.getEntity(j).getInputPort(0);
+                        console.log(connection['connection']['sourcePort']['parent']['parent']);
+                        t = figure;
+                        connection['connection']['sourcePort']['parent']['parent'].eventManager.dispatchEvent(event);
+                    } else {
+                        connection['connection']['sourcePort']['parent']['parent']['children']['data']['5']['figure'].setText(connection["connection"]["targetPort"]["parent"]['parent']['children']['data']['1']['figure'].getText());
+                        t = connection['connection']['sourcePort']['parent']['parent'];
+                        console.log(t);
+                        t.eventManager.dispatchEvent(event);
+                    }
+                    //Target Port
+                }
+                else
+                {
+                    console.log(connection['connection']['targetPort']["parent"]['parent']['children']['data']['3']['figure'].getText());
+                    connection['connection']['sourcePort']['parent']['parent']['children']['data']['5']['figure'].setText(connection['connection']['targetPort']["parent"]['parent']['children']['data']['3']['figure'].getText());
+                    connection['connection']['sourcePort']['parent']['parent']['children']['data']['4']['figure'].setText("1");
+                    t = connection['connection']['sourcePort']['parent']['parent'];
+                    T.eventManager.dispatchEvent(event);
+
+                    connection['connection']['targetPort']["parent"]['parent']['children']['data']['4']['figure'].setText(connection['connection']['sourcePort']['parent']['parent']['children']['data']['1']['figure'].getText());
+                    //Event enable to send request about the tableshap
+                    t = connection['connection']['targetPort']['parent']['parent'];
+                    T.eventManager.dispatchEvent(event);
+                }
+
+            });
         return label;
     },
 
@@ -205,6 +271,12 @@ TableShape = draw2d.shape.layout.VerticalLayout.extend({
         this.classLabel.setText(name);
 
         return this;
+    },
+    getName: function()
+    {
+        return this.classLabel["text"];
+
+
     },
     createMessageDb:function(object)
     {
@@ -295,12 +367,17 @@ TableShape = draw2d.shape.layout.VerticalLayout.extend({
     },
 
 
-});
+
 //Requette Update message and choice
-function sendUpdateMessage(donnee) {
+sendUpdateMessage:function(donnee) {
     UrlGeneral = "http://localhost/";
     UrlMessage = "Dialogue/Routeur/Routeur.php/api/message/update";
     urls = (UrlGeneral+UrlMessage);
+    console.log(donnee[4]);
+    console.log(new Boolean(donnee[4]));
+    let val;
+
+
     $.ajax({
         type: "POST",
         url: urls,
@@ -308,8 +385,8 @@ function sendUpdateMessage(donnee) {
         data: {
             "id":Number(donnee[1]),
             "text":donnee[2],
-            "isAchoice":Boolean(donnee[3]),
-            "idSuivant":Number(donnee[4]),
+            "isAchoice": donnee[4],
+            "idSuivant":Number(donnee[5]),
             "iddialogue":Number($("#selectDialogue").val())
         },
         success: function (response) {
@@ -317,8 +394,8 @@ function sendUpdateMessage(donnee) {
         },
 
     });
-}
-function sendUpdateChoix(donnee) {
+},
+sendUpdateChoix:function(donnee) {
     UrlGeneral = "http://localhost/";
     UrlMessage = "Dialogue/Routeur/Routeur.php/api/choix/update";
     console.log(donnee);
@@ -343,9 +420,9 @@ function sendUpdateChoix(donnee) {
         },
 
     });
-}
+},
 
-function CreateMesageDb(object)
+ CreateMesageDb:function(object)
 {
     UrlGeneral = "http://localhost/";
     UrlMessage = "Dialogue/Routeur/Routeur.php/api/message/create/";
@@ -362,7 +439,52 @@ function CreateMesageDb(object)
         },
 
     });
+},
+DeleteMessage:function(del) {
+    UrlGeneral = "http://localhost/";
+    UrlMessage = "Dialogue/Routeur/Routeur.php/api/message/delete";
+
+    urls = (UrlGeneral+UrlMessage);
+
+    $.ajax({
+        type: "POST",
+        url: urls,
+        //headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        data: {
+            "id":del,
+        },
+        success: function (response) {
+
+        },
+
+    });
+
+
+},
+DeleteChoice:function(del) {
+    UrlGeneral = "http://localhost/";
+    UrlMessage = "Dialogue/Routeur/Routeur.php/api/message/delete";
+
+    urls = (UrlGeneral + UrlMessage);
+
+    $.ajax({
+        type: "POST",
+        url: urls,
+        //headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        data: {
+            "id": del,
+        },
+        success: function (response) {
+
+        },
+
+    });
+
+
 }
+});
 class eventManager extends EventTarget{
 
     constructor() {

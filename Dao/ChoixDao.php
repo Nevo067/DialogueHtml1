@@ -17,6 +17,9 @@ WHERE Id=:id;";
 
     private $lastId ='SELECT max(id) from nevo067_dialogueharmonia.choix';
 
+    private $deleteReq = "DELETE FROM nevo067_dialogueharmonia.choix
+WHERE Id=:id;";
+
 
 
     public function __construct()
@@ -73,6 +76,12 @@ WHERE Id=:id;";
         $requette->bindParam(":text",$text,PDO::PARAM_STR);
         echo $requette->execute();
 
+    }
+    public function delete($id)
+    {
+        $requette = $this->bdd->prepare($this->reqDelete);
+        $requette->bindParam(":id",$id,PDO::PARAM_INT);
+        return $requette->execute();
     }
 
     /**

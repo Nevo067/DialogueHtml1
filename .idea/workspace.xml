@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2babb9e-b8b6-4be4-8af4-a7ac7b46309a" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -97,7 +98,15 @@
       <workItem from="1594425984684" duration="417000" />
       <workItem from="1594497365461" duration="2797000" />
       <workItem from="1594642684832" duration="448000" />
-      <workItem from="1594643378455" duration="9975000" />
+      <workItem from="1594643378455" duration="10574000" />
+      <workItem from="1594994654050" duration="344000" />
+      <workItem from="1594995063302" duration="9462000" />
+      <workItem from="1595026642506" duration="636000" />
+      <workItem from="1595072576706" duration="2090000" />
+      <workItem from="1595197549731" duration="2844000" />
+      <workItem from="1595377731801" duration="1741000" />
+      <workItem from="1595423196507" duration="1050000" />
+      <workItem from="1595428686448" duration="10967000" />
     </task>
     <servers />
   </component>
@@ -129,7 +138,6 @@
     <state x="580" y="187" key="FileChooserDialogImpl" timestamp="1589966814927">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state x="580" y="187" key="FileChooserDialogImpl/62.0.1474.864/1608.-1080.1280.680@62.0.1474.864" timestamp="1586348682160" />
     <state x="580" y="187" key="FileChooserDialogImpl/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1589966814927" />
     <state x="1033" y="322" key="NewPhpClassDialog" timestamp="1594120555059">
       <screen x="62" y="0" width="1474" height="864" />
@@ -143,12 +151,13 @@
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="308" y="75" key="SettingsEditor/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1587812605109" />
-    <state x="2297" y="-398" key="com.intellij.ide.util.TipDialog" timestamp="1594497365264">
-      <screen x="1920" y="-599" width="1280" height="680" />
+    <state x="499" y="255" key="com.intellij.ide.util.TipDialog" timestamp="1595423388480">
+      <screen x="66" y="0" width="1470" height="864" />
     </state>
-    <state x="496" y="256" key="com.intellij.ide.util.TipDialog/62.0.1474.864/1608.-1080.1280.680@62.0.1474.864" timestamp="1586348642940" />
     <state x="2297" y="-398" key="com.intellij.ide.util.TipDialog/62.0.1474.864/1920.-599.1280.680@1920.-599.1280.680" timestamp="1594497365264" />
     <state x="496" y="256" key="com.intellij.ide.util.TipDialog/62.0.1474.864/1920.-599.1280.680@62.0.1474.864" timestamp="1594339179644" />
+    <state x="497" y="255" key="com.intellij.ide.util.TipDialog/63.0.1473.864/1280.-1080.1536.824@63.0.1473.864" timestamp="1594994664147" />
+    <state x="499" y="255" key="com.intellij.ide.util.TipDialog/66.0.1470.864/1280.-1080.1536.824@66.0.1470.864" timestamp="1595423388480" />
     <state x="499" y="256" key="com.intellij.ide.util.TipDialog/66.0.1470.864/1920.-599.1280.680@66.0.1470.864" timestamp="1590229261263" />
     <state x="440" y="122" width="1108" height="641" key="dock-window-1" timestamp="1589968885252">
       <screen x="62" y="0" width="1474" height="864" />
@@ -170,11 +179,6 @@
           <url>file://$PROJECT_DIR$/Front/Requette/RequetteDialogue.js</url>
           <line>155</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Front/Requette/TableShape.js</url>
-          <line>5</line>
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

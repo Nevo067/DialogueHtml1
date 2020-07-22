@@ -18,7 +18,8 @@ WHERE id=:id;
 VALUES(:texte, :iddialogue, :textanglais, :isAChoice,:idSuivant);";
 
     private $lastId ='SELECT max(id) from dialogueharmania.message ';
-    private $reqDelete = "delele into message where id =:id";
+    private $reqDelete = "DELETE FROM nevo067_dialogueharmonia.message
+WHERE id=:id;";
     private $requetteCreate ="INSERT INTO nevo067_dialogueharmonia.message 
 (texte, iddialogue, textanglais, isAChoice, idPersonnage, idSuivant)
 VALUES(NULL, :idDialogue, NULL, 0, NULL, 0);";

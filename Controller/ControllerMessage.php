@@ -92,7 +92,16 @@ class ControllerMessage
         $isachoice= $_POST["isAchoice"];
         $idsuivant= $_POST["idSuivant"];
         return $dao->update($id,$texte,$iddialogue,$isachoice,$idsuivant);
-        
+    }
+    public function delete()
+    {
+        $dao= new messageDao();
+        $bddClass = new DatabaseClass();
+
+        $dao->setBdd($bddClass->getDbbConnection());
+        $id = $_POST['id'];
+
+        return $dao->delete($id);
 
     }
 }

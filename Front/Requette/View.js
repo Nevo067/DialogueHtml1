@@ -1,6 +1,7 @@
 
 
 //Create different table
+let isSave = false;
 example.View = draw2d.Canvas.extend({
 
 
@@ -11,7 +12,8 @@ example.View = draw2d.Canvas.extend({
 
         this.setZoom(1);
 
-        var canvas = this;
+        let isSave = false;
+        let canvas = this;
         canvas.fromDocumentToCanvasCoordinate = $.proxy(function(x, y) {
             return new draw2d.geo.Point(
                 (x + window.pageXOffset - this.getAbsoluteX() + this.getScrollLeft())*this.zoomFactor,
@@ -61,11 +63,11 @@ example.View = draw2d.Canvas.extend({
                 console.log(t.children.get(0).figure['text']);
                 if(t.children.get(0).figure['text'] === "Message")
                 {
-                    sendUpdateMessage(donne);
+                    t.sendUpdateMessage(donne);
                 }
                 else
                 {
-                    sendUpdateChoix(donne);
+                    t.sendUpdateChoix(donne);
                 }
             }
         });
@@ -75,12 +77,12 @@ example.View = draw2d.Canvas.extend({
 
         //Creer une figure Message
         if ($(droppedDomNode).attr('id') === "tableMessage") {
+            figure.setName("Message");
             figure.addEntity("id");
             figure.addEntity("text");
             figure.addEntity("textAnglais");
-            figure.addEntity("isAchoice");
+            figure.addEntity("0");
             figure.addEntity("idSuivant");
-            figure.setName("Message");
             console.log(figure.getLength());
             //Pour optimiser
 
@@ -104,6 +106,8 @@ example.View = draw2d.Canvas.extend({
                     {
                         connection['connection']['sourcePort']['parent']['parent']['children']['data']['5']['figure'].setText(connection["connection"]["targetPort"]["parent"]['parent']['children']['data']['1']['figure'].getText());
                         t =connection['connection']['sourcePort']['parent']['parent'];
+                        console.log(t);
+                        t.eventManager.dispatchEvent(event);
                     }
                     //Target Port
                 });
@@ -136,13 +140,14 @@ example.View = draw2d.Canvas.extend({
             //figure.setName("NewTable");
             //Create tableChoix
         } else if ($(droppedDomNode).attr('id') === "tableChoix") {
+            figure.setName("Choix");
             figure.addEntity("id");
             figure.addEntity("text");
             figure.addEntity("idSuivant");
             figure.addEntity("idMessage");
             figure.setName("Choix");
 
-            figure.setName("Choix");
+
             console.log(figure.getLength());
             for (let j = 0; j < figure.getLength() - 1; j++) {
                 console.log(figure);
@@ -184,6 +189,24 @@ example.View = draw2d.Canvas.extend({
             }
             figure.createChoixDb(figure.getEntity(0));
         }
+
+        //Enable to delete some message and choice on database
+        this.on("figure:remove",function (emitter,event) {
+           console.log(event);
+           if(isSave === false)
+           {
+               if(event["figure"]["children"]["data"]["0"]["figure"].getText() ==="Message")
+               {
+                   figure.DeleteMessage(event["figure"]["children"]["data"]["1"]["figure"].getText());
+               }
+               else
+               {
+                   figure.DeleteChoice(event["figure"]["children"]["data"]["1"]["figure"].getText());
+               }
+           }
+
+           //figure.DeleteMessage(event["figure"]["children"]["data"]["1"]["figure"].getText());
+        });
         // create a command for the undo/redo support
         var command = new draw2d.command.CommandAdd(this, figure, x, y);
 
@@ -307,18 +330,23 @@ example.View = draw2d.Canvas.extend({
         });
     },
     saveTab:function() {
+        isSave = true;
         let str ="";
         var writer = new draw2d.io.json.Writer();
         writer.marshal(this,function(json){
            str = JSON.stringify(json, null, 2);
         });
+        isSave = false;
         return str;
     },
     //Load in the canvas the scheme
     loadTab:function (str) {
+        isSave = true;
+        this.clear();
         var reader = new draw2d.io.json.Reader();
         console.log(str);
         reader.unmarshal(this, str);
+        isSave =false;
     },
     //#region Code that send data
     //#endregion
