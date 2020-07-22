@@ -196,9 +196,9 @@ TableShape = draw2d.shape.layout.VerticalLayout.extend({
                     if (connection['connection']['sourcePort']['parent']['parent']['children']['data']['0']["figure"].getText() === "Choix") {
                         connection['connection']['sourcePort']['parent']['parent']['children']['data']['3']['figure'].setText(connection["connection"]["targetPort"]["parent"]['parent']['children']['data']['1']['figure'].getText());
                         //connection['connection']['sourcePort']['parent']['parent']['children']['data']['4']['figure'].setText(connection["connection"]["targetPort"]["parent"]['parent']['children']['data']['1']['figure'].getText());
-                        figure.getEntity(j).getInputPort(0);
+
                         console.log(connection['connection']['sourcePort']['parent']['parent']);
-                        t = figure;
+                        
                         connection['connection']['sourcePort']['parent']['parent'].eventManager.dispatchEvent(event);
                     } else {
                         connection['connection']['sourcePort']['parent']['parent']['children']['data']['5']['figure'].setText(connection["connection"]["targetPort"]["parent"]['parent']['children']['data']['1']['figure'].getText());

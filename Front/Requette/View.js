@@ -350,7 +350,4 @@ example.View = draw2d.Canvas.extend({
     },
     //#region Code that send data
     //#endregion
-
-
-
 });
