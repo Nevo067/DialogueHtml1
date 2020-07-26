@@ -8,8 +8,8 @@ class ChoixDao
     private $variable;
 
     private $post = "INSERT INTO nevo067_dialogueharmonia.choix
-(idMessage, idMessageQuestion, isGoodChoice, text, nbEffect, IdSuivant, idDialogue, effect, textAnglais)
-VALUES(217, NULL, NULL, NULL, NULL, NULL, :idDialogue, NULL, NULL);";
+(idMessageQuestion, isGoodChoice, text, nbEffect, IdSuivant, idDialogue, effect, textAnglais)
+VALUES(NULL, 0, NULL, NULL, NULL, :idDialogue, NULL, NULL);";
 
     private $update = "Update nevo067_dialogueharmonia.choix
 SET idMessage=:idMessage, idMessageQuestion=NULL, isGoodChoice=NULL, text=:text, nbEffect=NULL, IdSuivant=:idSuivant, idDialogue=:idDialogue, effect=NULL, textAnglais=NULL

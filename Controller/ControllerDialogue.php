@@ -52,7 +52,7 @@ class ControllerDialogue
         $dao->setBdd($bddClass->getDbbConnection());
         //$bddClass->DbbConnection($dao->getBdd());
         $val = $dao->Post($dial);
-        return json_encode($val);
+        return $val;
     }
 
     public function update()
